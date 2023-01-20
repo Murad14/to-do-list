@@ -1,6 +1,6 @@
 html {
   background-color: #E4E9FD;
-  background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
+  /* background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%); */
   min-height: 1000px;
   font-family: 'helvetica neue';
 }
@@ -30,13 +30,13 @@ h1 {
   border-bottom: 1px solid #F1F1F1;
 }
 
-.item:last-child {
+/* .item:last-child {
   border-bottom: 0;
-}
+} */
 
 input:checked+p {
   text-decoration: line-through;
-  text-decoration-color: #A683E3;
+  text-decoration-color: #00204a;
 }
 
 input[type="checkbox"] {
@@ -89,8 +89,13 @@ input[type="text"]:focus {
   opacity: 1;
 }
 
-footer {
+/* ::placeholder {
+  color: gray;
+  font-size: 12px;
+} */
+
+/* footer {
   color: white;
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
-}
+} */
