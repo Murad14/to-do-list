@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 
         default:
             console.log("Error!");
-            break;
+          
     }
 
 
