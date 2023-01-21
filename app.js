@@ -31,15 +31,24 @@ app.get('/', (req, res) => {
 
 app.post("/", function(req,res){
 
-    console.log(req.body);
     let item = req.body.newItem
-    
-    items.push(item);
-    res.redirect("/");
+
+    if (req.body.list === "Work List"){
+        workItems.push(item)
+        res.redirect("/work");
+    } else{
+        items.push(item);
+        res.redirect("/");
+    }
+   
 })
 
 app.get("/work", function(req,res){
     res.render("list", {listTitle: "Work List", newListItems: workItems});
+})
+
+app.get("/about", function(req,res){
+    res.render("about");
 })
 
 app.post("work", function(req,res){
