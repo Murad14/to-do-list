@@ -5,7 +5,8 @@ const port = 3000
 const items = ["Buy Food", "Cook Food", "Eat Food"];
 const workItems = [];
 
-express.json() //body-parser
+app.use(express.json()) //body-parser
+app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs'); //ejs
 const dateModule = require(__dirname + "/date.js");
 
