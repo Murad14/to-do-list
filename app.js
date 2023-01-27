@@ -36,18 +36,34 @@ const item3 = new Item({
 
 const defaultItems = [item1, item2, item3];
 
-Item.insertMany(defaultItems, function (err) {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log("Succesfully saved default items to DB.");
-    }
-});
+// Item.insertMany(defaultItems, function (err) {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log("Succesfully saved default items to DB.");
+//     }
+// });
 
 app.get('/', (req, res) => {
 
+    Item.find({}, function (err, foundItems) {
+        if (foundItems.length === 0) {
+            Item.insertMany(defaultItems, function (err) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log("Succesfully saved default items to DB.");
+                }
+            });
+            // res.redirect('/');
+        } else {
+            res.render('list', { listTitle: "Today", newListItems: foundItems });
+        }
+        
+    })
+
     // const day = dateModule.getDate();
-    res.render('list', { listTitle: "Today", newListItems: items });
+
 
 });
 
