@@ -59,12 +59,10 @@ app.get('/', (req, res) => {
         } else {
             res.render('list', { listTitle: "Today", newListItems: foundItems });
         }
-        
+
     })
 
     // const day = dateModule.getDate();
-
-
 });
 
 
@@ -72,8 +70,8 @@ app.post("/", function (req, res) {
 
     const itemName = req.body.newItem;
 
-    const item = new Item ({
-        name : itemName
+    const item = new Item({
+        name: itemName
     });
 
     item.save();
@@ -82,11 +80,11 @@ app.post("/", function (req, res) {
 
 });
 
-app.post("/delete", function (req, res){
+app.post("/delete", function (req, res) {
     const checkedItemId = req.body.checkbox;
 
-    Item.findByIdAndRemove(checkedItemId, function(err){
-        if(!err){
+    Item.findByIdAndRemove(checkedItemId, function (err) {
+        if (!err) {
             console.log("Succesfully Deleted");
             res.redirect('/');
         }
